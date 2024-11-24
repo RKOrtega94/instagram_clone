@@ -25,7 +25,7 @@ class AuthLayout extends StatelessWidget {
                   child: Column(
                     children: [
                       Text(
-                        "Fakegram",
+                        'Fakegram',
                         style:
                             Theme.of(context).textTheme.displaySmall?.copyWith(
                                   fontWeight: FontWeight.w900,

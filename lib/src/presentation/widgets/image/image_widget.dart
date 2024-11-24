@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -30,7 +32,17 @@ class AppImageWidget extends StatelessWidget {
     } else if (image.endsWith('.svg')) {
       return _svgImage(image);
     } else {
-      return _assetImage(image);
+      // check if image is a base64 image
+      if (image.startsWith('data:image') && image.contains('base64,')) {
+        return Image.memory(
+          base64Decode(image),
+          fit: fit,
+          alignment: alignment as Alignment,
+          color: filterColor,
+        );
+      } else {
+        return _assetImage(image);
+      }
     }
   }
 
@@ -45,6 +57,8 @@ class AppImageWidget extends StatelessWidget {
         highlightColor: Colors.grey[100]!,
         child: Container(
           color: Colors.white,
+          width: double.infinity,
+          height: 300,
         ),
       ),
       errorWidget: (context, url, error) => const Icon(Icons.error),

@@ -5,12 +5,11 @@ import 'package:get/get.dart';
 import 'package:instagram_clone/firebase_options.dart';
 import 'package:instagram_clone/src/application/binding/_binding.dart';
 import 'package:instagram_clone/src/application/core/theme/theme.dart';
-import 'package:instagram_clone/src/presentation/pages/auth/login/login_page.dart';
 import 'package:instagram_clone/src/presentation/pages/home/home_page.dart';
 import 'package:instagram_clone/src/presentation/router/app_router.dart';
 
 Future<void> main() async {
-  await dotenv.load(fileName: ".env");
+  await dotenv.load(fileName: '.env');
 
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -31,7 +30,7 @@ class MyApp extends StatelessWidget {
       darkTheme: darkTheme,
       themeMode: Get.isDarkMode ? ThemeMode.dark : ThemeMode.light,
       getPages: AppRouter.routes,
-      initialRoute: LoginPage.route,
+      initialRoute: HomePage.route,
     );
   }
 }

@@ -22,7 +22,7 @@ class FooterComponent extends StatelessWidget {
             text: "Don't have account? ",
             children: [
               TextSpan(
-                text: "Sign up",
+                text: 'Sign up',
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.primary,
                 ),

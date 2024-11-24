@@ -10,7 +10,10 @@ class ModalController extends GetxController {
   void showModal(Widget child) {
     _isModalOpen = !_isModalOpen;
     update();
-    bottomSheet(Get.context!);
+    bottomSheet(
+      Get.context!,
+      child: child,
+    );
   }
 
   void hideModal() {

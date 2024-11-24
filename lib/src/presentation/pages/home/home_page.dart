@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:instagram_clone/src/presentation/controllers/post/post_controller.dart';
+import 'package:instagram_clone/src/presentation/widgets/post/post_widget.dart';
 import 'package:instagram_clone/src/presentation/layouts/main/main_layout.dart';
-import 'package:instagram_clone/src/presentation/pages/home/components/post_component.dart';
 
 class HomePage extends StatelessWidget {
   static const String route = '/home';
@@ -8,16 +10,20 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MainLayout(
-      child: CustomScrollView(
-        slivers: [
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (context, index) => const PostComponent(),
-              childCount: 1000,
+    return GetBuilder<PostController>(
+      builder: (PostController postController) => MainLayout(
+        child: CustomScrollView(
+          slivers: [
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (context, index) => PostWidget(
+                  post: postController.posts[index],
+                ),
+                childCount: postController.posts.length,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -23,6 +23,7 @@ mixin _$PostModel {
   UserModel get user => throw _privateConstructorUsedError;
   List<dynamic>? get filess => throw _privateConstructorUsedError;
   String? get comment => throw _privateConstructorUsedError;
+  List<CommentModel> get comments => throw _privateConstructorUsedError;
 
   /// Serializes this PostModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,7 +40,11 @@ abstract class $PostModelCopyWith<$Res> {
   factory $PostModelCopyWith(PostModel value, $Res Function(PostModel) then) =
       _$PostModelCopyWithImpl<$Res, PostModel>;
   @useResult
-  $Res call({UserModel user, List<dynamic>? filess, String? comment});
+  $Res call(
+      {UserModel user,
+      List<dynamic>? filess,
+      String? comment,
+      List<CommentModel> comments});
 
   $UserModelCopyWith<$Res> get user;
 }
@@ -62,6 +67,7 @@ class _$PostModelCopyWithImpl<$Res, $Val extends PostModel>
     Object? user = null,
     Object? filess = freezed,
     Object? comment = freezed,
+    Object? comments = null,
   }) {
     return _then(_value.copyWith(
       user: null == user
@@ -76,6 +82,10 @@ class _$PostModelCopyWithImpl<$Res, $Val extends PostModel>
           ? _value.comment
           : comment // ignore: cast_nullable_to_non_nullable
               as String?,
+      comments: null == comments
+          ? _value.comments
+          : comments // ignore: cast_nullable_to_non_nullable
+              as List<CommentModel>,
     ) as $Val);
   }
 
@@ -98,7 +108,11 @@ abstract class _$$PostModelImplCopyWith<$Res>
       __$$PostModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({UserModel user, List<dynamic>? filess, String? comment});
+  $Res call(
+      {UserModel user,
+      List<dynamic>? filess,
+      String? comment,
+      List<CommentModel> comments});
 
   @override
   $UserModelCopyWith<$Res> get user;
@@ -120,6 +134,7 @@ class __$$PostModelImplCopyWithImpl<$Res>
     Object? user = null,
     Object? filess = freezed,
     Object? comment = freezed,
+    Object? comments = null,
   }) {
     return _then(_$PostModelImpl(
       user: null == user
@@ -134,6 +149,10 @@ class __$$PostModelImplCopyWithImpl<$Res>
           ? _value.comment
           : comment // ignore: cast_nullable_to_non_nullable
               as String?,
+      comments: null == comments
+          ? _value._comments
+          : comments // ignore: cast_nullable_to_non_nullable
+              as List<CommentModel>,
     ));
   }
 }
@@ -142,8 +161,12 @@ class __$$PostModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PostModelImpl with DiagnosticableTreeMixin implements _PostModel {
   const _$PostModelImpl(
-      {required this.user, final List<dynamic>? filess, this.comment})
-      : _filess = filess;
+      {required this.user,
+      final List<dynamic>? filess,
+      this.comment,
+      final List<CommentModel> comments = const []})
+      : _filess = filess,
+        _comments = comments;
 
   factory _$PostModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$PostModelImplFromJson(json);
@@ -162,10 +185,18 @@ class _$PostModelImpl with DiagnosticableTreeMixin implements _PostModel {
 
   @override
   final String? comment;
+  final List<CommentModel> _comments;
+  @override
+  @JsonKey()
+  List<CommentModel> get comments {
+    if (_comments is EqualUnmodifiableListView) return _comments;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_comments);
+  }
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'PostModel(user: $user, filess: $filess, comment: $comment)';
+    return 'PostModel(user: $user, filess: $filess, comment: $comment, comments: $comments)';
   }
 
   @override
@@ -175,7 +206,8 @@ class _$PostModelImpl with DiagnosticableTreeMixin implements _PostModel {
       ..add(DiagnosticsProperty('type', 'PostModel'))
       ..add(DiagnosticsProperty('user', user))
       ..add(DiagnosticsProperty('filess', filess))
-      ..add(DiagnosticsProperty('comment', comment));
+      ..add(DiagnosticsProperty('comment', comment))
+      ..add(DiagnosticsProperty('comments', comments));
   }
 
   @override
@@ -185,13 +217,18 @@ class _$PostModelImpl with DiagnosticableTreeMixin implements _PostModel {
             other is _$PostModelImpl &&
             (identical(other.user, user) || other.user == user) &&
             const DeepCollectionEquality().equals(other._filess, _filess) &&
-            (identical(other.comment, comment) || other.comment == comment));
+            (identical(other.comment, comment) || other.comment == comment) &&
+            const DeepCollectionEquality().equals(other._comments, _comments));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType, user, const DeepCollectionEquality().hash(_filess), comment);
+      runtimeType,
+      user,
+      const DeepCollectionEquality().hash(_filess),
+      comment,
+      const DeepCollectionEquality().hash(_comments));
 
   /// Create a copy of PostModel
   /// with the given fields replaced by the non-null parameter values.
@@ -213,7 +250,8 @@ abstract class _PostModel implements PostModel {
   const factory _PostModel(
       {required final UserModel user,
       final List<dynamic>? filess,
-      final String? comment}) = _$PostModelImpl;
+      final String? comment,
+      final List<CommentModel> comments}) = _$PostModelImpl;
 
   factory _PostModel.fromJson(Map<String, dynamic> json) =
       _$PostModelImpl.fromJson;
@@ -224,6 +262,8 @@ abstract class _PostModel implements PostModel {
   List<dynamic>? get filess;
   @override
   String? get comment;
+  @override
+  List<CommentModel> get comments;
 
   /// Create a copy of PostModel
   /// with the given fields replaced by the non-null parameter values.

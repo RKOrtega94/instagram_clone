@@ -3,8 +3,9 @@ import 'package:get/get.dart';
 import 'package:instagram_clone/src/presentation/controllers/app/modal_controller.dart';
 
 Future<void> bottomSheet(
-  BuildContext context,
-) =>
+  BuildContext context, {
+  required Widget child,
+}) =>
     showModalBottomSheet(
       context: context,
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -15,11 +16,26 @@ Future<void> bottomSheet(
         duration: const Duration(milliseconds: 500),
         vsync: Navigator.of(context),
       ),
-      builder: (context) => Container(
-        constraints: BoxConstraints(
-          maxHeight: MediaQuery.of(context).size.height * 0.85,
+      builder: (context) =>
+          NotificationListener<DraggableScrollableNotification>(
+        onNotification: (notification) {
+          if (notification.extent == notification.minExtent) {
+            Navigator.of(context).pop();
+          }
+          return false;
+        },
+        child: Container(
+          padding: EdgeInsets.only(
+            bottom: MediaQuery.of(context).viewInsets.bottom,
+          ),
+          height: MediaQuery.of(context).size.height * 0.9 - 24,
+          child: SingleChildScrollView(
+            padding: EdgeInsets.only(
+              bottom: MediaQuery.of(context).viewInsets.bottom,
+            ),
+            child: child,
+          ),
         ),
-        child: const Placeholder(),
       ),
     )
         .then(

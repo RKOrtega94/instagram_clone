@@ -11,6 +11,10 @@ _$PostModelImpl _$$PostModelImplFromJson(Map<String, dynamic> json) =>
       user: UserModel.fromJson(json['user'] as Map<String, dynamic>),
       filess: json['filess'] as List<dynamic>?,
       comment: json['comment'] as String?,
+      comments: (json['comments'] as List<dynamic>?)
+              ?.map((e) => CommentModel.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
     );
 
 Map<String, dynamic> _$$PostModelImplToJson(_$PostModelImpl instance) =>
@@ -18,4 +22,5 @@ Map<String, dynamic> _$$PostModelImplToJson(_$PostModelImpl instance) =>
       'user': instance.user,
       'filess': instance.filess,
       'comment': instance.comment,
+      'comments': instance.comments,
     };

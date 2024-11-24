@@ -62,6 +62,8 @@ WINDOWS_APP_ID=YOUR_WINDOWS_APP_ID
 WINDOWS_MESSAGING_SENDER_ID=YOUR_WINDOWS_MESSAGING_SENDER_ID
 WINDOWS_AUTH_DOMAIN=YOUR_WINDOWS_AUTH_DOMAIN
 WINDOWS_MEASUREMENT_ID=YOUR_WINDOWS_MEASUREMENT_ID
+
+SOURCE=YOUR_SOURCE ('fake', 'firebase', ...)
 ```
 1. This project uses firebase as a backend, so you need to create a project in the [firebase console](https://console.firebase.google.com/). _Use this documentation as reference to configure firebase [Add Firebase to your project](https://firebase.google.com/docs/flutter/setup?hl=es&platform=ios)._
 
