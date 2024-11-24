@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:instagram_clone/src/application/controllers/app/modal_controller.dart';
+import 'package:instagram_clone/src/presentation/controllers/app/modal_controller.dart';
 
 Future<void> bottomSheet(
   BuildContext context,

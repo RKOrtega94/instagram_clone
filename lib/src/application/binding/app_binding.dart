@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
-import 'package:instagram_clone/src/application/controllers/app/modal_controller.dart';
-import 'package:instagram_clone/src/application/controllers/app/theme_controller.dart';
+import 'package:instagram_clone/src/presentation/controllers/app/modal_controller.dart';
+import 'package:instagram_clone/src/presentation/controllers/app/splash_controller.dart';
+import 'package:instagram_clone/src/presentation/controllers/app/theme_controller.dart';
 
 class AppBinding extends Bindings {
   @override
@@ -12,6 +13,9 @@ class AppBinding extends Bindings {
     Get.put(
       ModalController(),
       permanent: true,
+    );
+    Get.lazyPut(
+      () => SplashController(),
     );
   }
 }

@@ -3,6 +3,7 @@ import 'package:instagram_clone/src/presentation/layouts/main/main_layout.dart';
 import 'package:instagram_clone/src/presentation/pages/home/components/post_component.dart';
 
 class HomePage extends StatelessWidget {
+  static const String route = '/home';
   const HomePage({super.key});
 
   @override

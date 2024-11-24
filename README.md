@@ -78,9 +78,16 @@ This project uses the Clean Architecture principles and is divided into the foll
 
 - [flutter_dotenv](https://pub.dev/packages/flutter_dotenv) - A flutter plugin to use `.env` files.
 - [GetX](https://pub.dev/packages/get) - A flutter framework that simplifies state management.
+- [freezed]() <!-- TODO: Add url -->
+- [shimmer]() <!-- TODO: Add url -->
+- [firebase_core]() <!-- TODO: Add url -->
 
 ## Custom Widgets
 
 - **AppImage**: A widget to load images from the internet.
 
-<!-- TODO: Add description here -->
+[image_widget.dart](/lib/src/presentation/widgets/image/image_widget.dart)
+
+## Sources
+
+This projec was development with clean architecture and exist two sources, one with fake data, this was used to build interfaces and can use to test application without internet connection, all resources are in local

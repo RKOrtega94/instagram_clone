@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:instagram_clone/src/application/controllers/app/modal_controller.dart';
-import 'package:instagram_clone/src/application/controllers/app/theme_controller.dart';
+import 'package:instagram_clone/src/presentation/controllers/app/modal_controller.dart';
+import 'package:instagram_clone/src/presentation/controllers/app/theme_controller.dart';
 import 'package:instagram_clone/src/presentation/layouts/main/components/appbar_component.dart';
 import 'package:instagram_clone/src/presentation/layouts/main/components/bottom_nabvar_component.dart';
 
